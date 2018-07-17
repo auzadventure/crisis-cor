@@ -1,0 +1,96 @@
+/*
+color red : #d9534f;
+*/
+
+section {
+	padding: 5px 15px;
+}
+
+.background-red {
+	background-color:#d9534f;
+	
+}
+
+.background-grey {
+	background-color: lightgrey;
+}
+
+
+.border-red {
+	border: 1px solid #d9534f;
+}
+
+
+.text-size-small {
+	font-size: 14px;
+}
+
+
+.color-white {
+	color: #fff;
+}
+
+.color-red {
+	color: #d9534f;
+}
+
+
+.color-grey {
+	color: grey;
+}
+
+.title {
+	color: #fff;
+	text-align: left;
+	margin-left:10px;
+	
+}
+
+.icon {
+	margin-right: 10px;
+}
+
+.small {
+	font-size: 14px;
+}
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.sms-view .table-view-cell{
+	padding-right: 15px;
+	}
+	
+.group-view li div {
+	display:inline-block;
+}
+
+/* msg */
+
+.msg-card {
+	display: inline-block;
+	border-radius: 5px;
+	background-color: #efefef;
+	border: 1px solid #d9534f;
+	padding: 5px;
+	margin: 2px 5px;
+}
+
+.msg-card-reply {
+	text-align: right;
+	padding: 5px 10px;
+}
+
+.msg-card-reply div {
+	text-align: right;
+	display:inline-block;
+	border: 1px solid #d9534f;
+	border-radius: 5px;
+	padding: 5px 7px;	
+	font-size: 14px;
+}
