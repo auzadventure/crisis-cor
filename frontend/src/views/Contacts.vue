@@ -5,7 +5,7 @@
 <div>
 	
 <div class='card'>
-	Contacts
+	Contacts {{name}}
 </div>
 
   <ul class="table-view group-view">
@@ -37,6 +37,7 @@
   </ul>
   
 <section>
+	<button @click='hello'>say hello</button>
 <form>
   <input type="text" placeholder="Name">	
   <input type="text" placeholder="Contact No">
@@ -53,10 +54,29 @@
 
 <script>
 // @ is an alias to /src
+import axios from 'axios';
 
 
 export default {
   name: 'reply',
+  data() {
+  	return {
+      name: 'lionel'
+	}
+  },
 
+  methods: {
+	
+	hello() {
+	  console.log('hello')
+
+	  axios.get("http://date.jsontest.com/")
+	  .then((res) => { 
+	  	console.log(res.data)
+	  	}
+	  )
+
+	}
+  }
 }
 </script>
