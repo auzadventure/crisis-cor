@@ -23,6 +23,16 @@ app.start = function() {
 boot(app, __dirname, function(err) {
   if (err) throw err;
 
+  app.dataSources.sqliteDS.autoupdate('contact', function(err) { if (err) throw err; })
+  app.dataSources.sqliteDS.autoupdate('group', function(err) { if (err) throw err; })
+
+  // ds.isActual(models, function(err, actual) {
+  //   if (!actual) {
+  //     ds.autoupdate(models, function(err, result) {
+  //     });
+  //   }
+  // });
+
   // start the server if `$ node server.js`
   if (require.main === module)
     app.start();

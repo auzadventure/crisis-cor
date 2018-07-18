@@ -38,5 +38,9 @@
   "contact": {
     "dataSource": "sqliteDS",
     "public": true
+  },
+  "group": {
+    "dataSource": "sqliteDS",
+    "public": true
   }
 }
