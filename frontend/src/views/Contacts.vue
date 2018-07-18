@@ -4,46 +4,42 @@
 	
 <div>
 	
-<div class='card'>
-	Contacts {{name}}
-</div>
+
 
   <ul class="table-view group-view">
-    <li class="table-view-cell">
-	<div class=""><span class="icon icon-person"></span></div>
-	<div class="" style='width:40%'>Andahara</div>
-	<div class="small color-grey">94450338
-	</div>
-
+    <li class="table-view-cell" v-for="(item,index) in contacts">
+		<div class=""><span class="icon icon-person"></span></div>
+		<div class="" style='width:40%'>{{item.name}}</div>
+		<div class="small color-grey" style='width:40%'>{{item.tel}}</div>
+		<div class='pull-right'><input type='checkbox' v-model="check" :value='index'></div>
+		
 	</li>
-    <li class="table-view-cell">
-	<div class=""><span class="icon icon-person"></span></div>
-	<div class="" style='width:40%'>William</div>
-	<div class="small color-grey">944 5555 </div>
-
-	</li>
-    <li class="table-view-cell">
-	<div class=""><span class="icon icon-person"></span></div>
-	<div class="" style='width:40%'>Lionel</div>
-	<div class="small color-grey">9445 0338</div>
-
-	</li>
-    <li class="table-view-cell">
-	<div class=""><span class="icon icon-person"></span></div>
-	<div class="" style='width:40%'>Steven</div>
-	<div class="small color-grey">Hello </div>
-
-	</li>	
+	
   </ul>
   
 <section>
-	<button @click='hello'>say hello</button>
-<form>
-  <input type="text" placeholder="Name">	
-  <input type="text" placeholder="Contact No">
+{{check}} {{isGroup}}
 
-  <button class="btn btn-negative btn-outlined btn-block" style='padding:8px;font-size:14px'>Create Contact</button>
+
+
+<form v-if="!isGroup">
+  <input type="text" v-model='contact.name' placeholder="Name">	
+  <input type="text" v-model='contact.tel' placeholder="Contact No">
+
+  <button class="btn btn-negative btn-outlined btn-block button-std" @click='add' >Add Contact</button>
 </form>
+
+<form v-else>
+
+  <input type="text" v-model='groupname' placeholder="Groupname">
+
+  <button class="btn btn-negative btn-outlined btn-block button-std" @click='add' >
+  	<span class="icon icon-list"></span>  Create Group</button>
+
+</form>	
+
+
+
 </section>
 
 </div>
@@ -61,7 +57,9 @@ export default {
   name: 'reply',
   data() {
   	return {
-      name: 'lionel'
+  	  check: [],
+      contact: {},
+      contacts: [{name:'Andahara',tel:'94450338'},{name:'william', tel:'9444555'},{name:'lionel',tel:'555-5555'}]
 	}
   },
 
@@ -71,12 +69,27 @@ export default {
 	  console.log('hello')
 
 	  axios.get("http://date.jsontest.com/")
-	  .then((res) => { 
+	  .then((res) => {
 	  	console.log(res.data)
 	  	}
 	  )
 
-	}
+	},
+
+	add(){
+		console.log('add')
+		let item = {name:this.contact.name, tel: this.contact.tel}
+		this.contact.name = ''
+		this.contact.tel = ''
+		this.contacts.push(item); 
+	},
+  },
+
+  computed: {
+
+  	isGroup() {
+  		return this.check.length > 0
+  	}
   }
 }
 </script>

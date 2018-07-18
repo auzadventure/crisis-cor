@@ -65,6 +65,11 @@ section {
 .sms-view .table-view-cell{
 	padding-right: 15px;
 	}
+
+
+.table-view-cell {
+	padding-right:30px;
+}
 	
 .group-view li div {
 	display:inline-block;
@@ -93,4 +98,8 @@ section {
 	border-radius: 5px;
 	padding: 5px 7px;	
 	font-size: 14px;
+}
+
+.button-std {
+	padding:8px;font-size:14px
 }

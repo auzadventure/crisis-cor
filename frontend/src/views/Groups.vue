@@ -23,6 +23,12 @@
 	
 	
   </ul>
+
+  <section>
+  <button class="btn btn-negative btn-outlined btn-block button-std" @click='add'>
+	Create Group</button>
+  </section>
+
   </div>
 </template>
 
