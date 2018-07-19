@@ -4,7 +4,7 @@
   <ul class="table-view sms-view">
     <li class="table-view-cell">
 		<router-link to="/msg">
-			<span class='small color-red'>Warning! Gunman Spotted in  ...</span>
+			<span class='small color-red'>Warning! Gunman Spotted in china ...</span>
 			<span class='small color-grey' style=''>15.12pm</span>
 			<br>
 			<span class='text-size-small color-grey'>Teachers</span>

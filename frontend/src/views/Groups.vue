@@ -1,43 +1,56 @@
 <template>
   <div>
   <ul class="table-view group-view">
-    <li class="table-view-cell">
+    <li v-for="group in groups" class="table-view-cell">
 	<div class=""><span class="icon icon-person"></span></div>
-	<div class="" style='width:60%'>All Teachers</div>
-	<div class="small color-grey">30 pax</div>
-
-	</li>
-    <li class="table-view-cell">
-	<div class=""><span class="icon icon-person"></span></div>
-	<div class="" style='width:60%'>In Building</div>
-	<div class="small color-grey">20 pax</div>
+	<div class="" style='width:60%'>{{group.name}}</div>
+	<div class="small color-grey">{{group.members.split(",").length}} pax </div>
 
 	</li>
 
-    <li class="table-view-cell">
-	<div class=""><span class="icon icon-person"></span></div>
-	<div class="" style='width:60%'>Not In Building</div>
-	<div class="small color-grey">10 pax</div>
 
 	</li>	
 	
 	
   </ul>
 
-  <section>
-  <button class="btn btn-negative btn-outlined btn-block button-std" @click='add'>
-	Create Group</button>
-  </section>
 
+	<button class='btn btn-block' @click='getAll'>Get All </button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import axios from 'axios';
 
 export default {
   name: 'groups',
+  data() {
+	return {
+		groups: {}
+	}
+  },
+  
+  mounted() {
+	this.getAll()
+  },
+
+  methods: {
+	getAll() {
+		var self = this;
+		
+		axios.get('http://localhost:8080/api/groups')
+			.then( res => {
+						self.groups = res.data
+						console.log(res.data);
+					})
+			.catch( err => {
+			  console.log(err)}
+			)  
+	}
+  }
+  
+  
 
 }
 </script>
