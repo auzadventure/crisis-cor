@@ -11,7 +11,7 @@ $ node .
 
 #### Port 8080
 
-
+```npm -g install ```
 
 https://loopback.io/doc/en/lb3/Using-the-model-generator.html
 http://watch-learn.com/video-tutorials/frontend-tips-introduction-loopback-using-it-sqlite3
