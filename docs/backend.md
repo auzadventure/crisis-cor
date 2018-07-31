@@ -6,7 +6,7 @@
 ## User
 
 
-'''
+```
 /api/users 	GET 	
 
 user = { id, name, number }
@@ -16,10 +16,11 @@ user = { id, name, number }
 /api/users/:user_id 	GET 	
 /api/users/:user_id 	PUT 	
 /api/users/:user_id 	DELETE 	
-'''
+```
 
 ## groups
 
+```
 group = { id, name, members {array} }
 
 /api/groups 	GET 	
@@ -37,11 +38,15 @@ params { user_id }
 /api/group/:group_id/delete   POST - splice user id from members 
 
 params { user_id } 
+```
+
 
 ## sms 
 
+```
 /api/sms   POST              # send message to all in group 
 params { msg: ' ', group_id: '' }   
 
 1. Get all user ID in group 
 2. Loop through and sms them 
+```
