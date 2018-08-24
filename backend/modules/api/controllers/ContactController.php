@@ -28,12 +28,7 @@ class ContactController extends ActiveController
 		]);
 	}
 
-	/* protected function verbs() {
-	   $verbs = parent::verbs();
-	   $verbs['index'] = ['POST','GET','PUT']; //methods you need in action
-
-	   return $verbs;
-	} */
+	
 	
 
 
