@@ -63,6 +63,8 @@
 // @ is an alias to /src
 import axios from 'axios';
 
+var url = 'http://localhost/local/vue.js/crisis-kor/backend/web/api/contact'
+
 
 export default {
   name: 'reply',
@@ -77,26 +79,18 @@ export default {
   
   mounted() {
 	this.getAll()
+
   
   },
 
   methods: {
 	
-	hello() {
-	  console.log('hello')
 
-	  axios.get("http://")
-	  .then((res) => {
-	  	console.log(res.data)
-	  	}
-	  )
-
-	},
 
 	getAll() {
 		var self = this;
 		
-		axios.get('http://localhost:8080/api/contacts')
+		axios.get(url)
 			.then( res => {
 						this.contacts = res.data
 						console.log(res.data);
@@ -111,7 +105,7 @@ export default {
 		console.log('add')
 		let item = {name:this.contact.name, tel: this.contact.tel}
 		var self = this; 
-		axios.put("http://localhost:8080/api/contacts", {
+		axios.post(url, {
 						"name": this.contact.name,
 						"number": this.contact.tel,
 						}

@@ -38,7 +38,7 @@ export default {
   methods: {
 	getAll() {
 		var self = this;
-		
+
 		axios.get('http://localhost:8080/api/groups')
 			.then( res => {
 						self.groups = res.data
