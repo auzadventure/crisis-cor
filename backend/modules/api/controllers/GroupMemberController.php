@@ -3,9 +3,9 @@ namespace app\modules\api\controllers;
 
 use yii\rest\ActiveController;
 
-class ContactController extends ActiveController
+class GroupMemberController extends ActiveController
 {
-    public $modelClass = 'app\models\Contact';
+    public $modelClass = 'app\models\GroupMember';
 	
 	public $enableCsrfValidation = false;
 		

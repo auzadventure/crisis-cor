@@ -63,7 +63,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
 			'rules' => [
-				['class'=>'yii\rest\UrlRule', 'controller'=>['api/contact'] ],
+				['class'=>'yii\rest\UrlRule', 'controller'=>['api/contact','api/group','api/group-member'] ],
 				//'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 				//'<module:\w+>/<controller:\w+><action:\w+>' => '<module>/<controller>/<action>'
 			]

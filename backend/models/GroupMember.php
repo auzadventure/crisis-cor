@@ -11,7 +11,7 @@ use Yii;
  * @property int $groupID
  * @property int $contactID
  */
-class GroupMembers extends \yii\db\ActiveRecord
+class GroupMember extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}

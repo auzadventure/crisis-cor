@@ -11,11 +11,21 @@ Yii2 API
 
 <div class="">
 
+<h1>Links </h1>
+
 <ul>
 	<li> <?= Html::a('contact',['contact/index']) ?> </li>
-	
-	<li> <?= Html::a('Api',['/api/contact']) ?> </li>
+	<li> <?= Html::a('group',['group/index']) ?> </li>
+	<li> <?= Html::a('groupMembers',['group-member/index']) ?> </li>
 </ul>
 
+<h1> API </h1>
+
+<ul>
+	<li><?= Html::a('Api',['/api/contacts']) ?></li>
+	<li><?= Html::a('group',['/api/groups']) ?></li>
+	<li><?= Html::a('groupMembers',['/api/group-members']) ?></li>
+
+	</ul>
 </div>
 </div>
