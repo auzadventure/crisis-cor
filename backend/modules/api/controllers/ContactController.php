@@ -10,7 +10,9 @@ class ContactController extends ActiveController
 	public $enableCsrfValidation = false;
 		
 	
-
+	public function actionHello() {
+		echo 'hello';
+	}
 
 	
 }

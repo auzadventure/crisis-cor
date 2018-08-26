@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+
 use Yii;
 
 /**
@@ -42,4 +43,29 @@ class GroupMember extends \yii\db\ActiveRecord
             'contactID' => 'Contact ID',
         ];
     }
+	
+	public static function getMembersByGroup($groupID) {
+		
+		$rows = GroupMember::find()->where(['groupID'=>$groupID])->all();
+		
+		$array = [];
+		foreach ($rows as $row) {
+			array_push($array,$row->contactID);
+		}
+		return $array;
+		
+	}
+	
+	
+	public static function countByGroup($groupID) {
+		
+		$result = GroupMember::find()->where(['groupID'=>$groupID])->count();
+		return $result;
+	}
+	
+	
+    public function getContacts()
+    {
+        return $this->hasOne(Contact::className(), ['id' => 'contactID']);
+    }	
 }

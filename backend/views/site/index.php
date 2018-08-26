@@ -25,7 +25,8 @@ Yii2 API
 	<li><?= Html::a('Api',['/api/contacts']) ?></li>
 	<li><?= Html::a('group',['/api/groups']) ?></li>
 	<li><?= Html::a('groupMembers',['/api/group-members']) ?></li>
-
+<li><?= Html::a('Members By Group',['/api/group-members/bygroup/1']) ?></li>
+<li><?= Html::a('Members By Not In Group',['/api/group-members/notingroup/1']) ?></li>
 	</ul>
 </div>
 </div>

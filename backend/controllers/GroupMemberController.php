@@ -39,6 +39,8 @@ class GroupMemberController extends Controller
             'query' => GroupMember::find(),
         ]);
 
+		
+		
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
@@ -109,6 +111,15 @@ class GroupMemberController extends Controller
         return $this->redirect(['index']);
     }
 
+	public function actionBygroup($id)
+    {
+        $id = Yii::$app->request->get('id');
+		
+		$rows = GroupMember::find()->all();//->where(['groupid'=>$id]);
+		
+		return $this->asJson($rows);
+	}	
+	
     /**
      * Finds the GroupMember model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

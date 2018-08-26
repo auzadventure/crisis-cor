@@ -1,11 +1,13 @@
 <template>
 
-
-	
 <div>
 	
-
-
+  <div v-if="$route.params.groupid">
+	<h3> Group Selected{{ $route.params.groupid }}</h3>
+  </div>
+	
+	
+	
   <ul class="table-view group-view">
     <li class="table-view-cell" v-for="(item,index) in contacts">
 		<div class=""><span class="icon icon-person"></span></div>
@@ -22,9 +24,10 @@
   
 <section>
 {{check}} {{isGroup}}
-<h1>
 
-</h1>
+
+
+
 
 
 <form v-if="!isGroup">
@@ -63,7 +66,9 @@
 // @ is an alias to /src
 import axios from 'axios';
 
-var url = 'http://localhost/local/vue.js/crisis-kor/backend/web/api/contact'
+import * as GLOBALVARS from './../globalvars'
+
+var url = GLOBALVARS.API_URL + "/contacts"
 
 
 export default {
@@ -79,13 +84,10 @@ export default {
   
   mounted() {
 	this.getAll()
-
-  
+	console.log(this.$route.params.groupid)
   },
 
   methods: {
-	
-
 
 	getAll() {
 		var self = this;
@@ -96,8 +98,6 @@ export default {
 						console.log(res.data);
 					})
 			.catch( err => console.log(err))
-		
-
 	},
 	
 	
@@ -119,7 +119,7 @@ export default {
 	},
 	
 	deleterow(id) {
-		var path = "http://localhost:8080/api/contacts/"+ id;
+		var path = url + "/" + id;
 		var self = this 
 		// alert(path)
 		axios.delete(path).then( res => {
@@ -131,18 +131,6 @@ export default {
 	
 	},
 	
-	createGroup() {
-		alert(this.groupname);
-		console.log(this.check)
-	
-		var self = this 
-		axios.put("http://localhost:8080/api/groups", {
-			name: self.groupname,
-			members: self.check.toString()
-		}). then ( res => {console.log(res)})
-		 . catch (err => {console.log(err)})
-	
-	}
   },
 
   computed: {

@@ -63,7 +63,27 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
 			'rules' => [
-				['class'=>'yii\rest\UrlRule', 'controller'=>['api/contact','api/group','api/group-member'] ],
+				['class'=>'yii\rest\UrlRule', 
+				 'controller'=>['api/contact','api/group'],
+				 'tokens' => [
+						'{id}' => '<id:\\w+>',
+						'{type}'=>'<type:\\w+>'
+						],			 
+				],
+				
+				['class'=>'yii\rest\UrlRule', 
+				 'controller'=>['api/group-member'],
+				 'tokens' => [
+						'{id}' => '<id:\\w+>',
+						'{type}'=>'<type:\\w+>'
+					],			 
+	             'extraPatterns' => [
+                        'GET bygroup/{id}' => 'bygroup',
+						'GET notingroup/{id}' => 'notingroup',
+						
+                    ], 
+				],
+				
 				//'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 				//'<module:\w+>/<controller:\w+><action:\w+>' => '<module>/<controller>/<action>'
 			]

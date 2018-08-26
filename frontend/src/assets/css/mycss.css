@@ -6,6 +6,16 @@ section {
 	padding: 5px 15px;
 }
 
+.heading1 {
+	display:block;
+	width:100%;
+	border-bottom: 1px solid #d9534f;
+	padding:2px 5px;
+	font-size: 80%;
+	font-weight: 600;
+}
+
+
 .background-red {
 	background-color:#d9534f;
 	
